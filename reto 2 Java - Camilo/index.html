@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Programa de Notas de Alumnos</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <main class="contenedor">
+    <section class="tarjeta formulario-tarjeta">
+      <div class="encabezado">
+        <p class="etiqueta">Gestión académica</p>
+        <h1>Programa de notas de alumnos</h1>
+        <p class="descripcion">
+          Ingresa los datos de los 10 alumnos del curso para calcular promedios,
+          estados y ranking final.
+        </p>
+      </div>
+
+      <div class="contador" id="contadorAlumnos">Alumno registrado: 0 de 10</div>
+
+      <form id="formularioNotas" class="formulario" novalidate>
+        <div class="campo">
+          <label for="nombre">Nombre del alumno</label>
+          <input type="text" id="nombre" name="nombre" placeholder="Ejemplo: Carlos Pérez" maxlength="50">
+        </div>
+
+        <div class="campo">
+          <label for="certamen1">Certamen 1</label>
+          <input type="number" id="certamen1" name="certamen1" placeholder="Ingrese una nota entre 0 y 100" min="0" max="100" step="0.01">
+        </div>
+
+        <div class="campo">
+          <label for="certamen2">Certamen 2</label>
+          <input type="number" id="certamen2" name="certamen2" placeholder="Ingrese una nota entre 0 y 100" min="0" max="100" step="0.01">
+        </div>
+
+        <div class="campo">
+          <label for="certamen3">Certamen 3</label>
+          <input type="number" id="certamen3" name="certamen3" placeholder="Ingrese una nota entre 0 y 100" min="0" max="100" step="0.01">
+        </div>
+
+        <p id="mensaje" class="mensaje" aria-live="polite"></p>
+
+        <div class="acciones">
+          <button type="submit" id="botonAgregar">Agregar alumno</button>
+          <button type="button" id="botonLimpiar" class="boton-secundario">Limpiar formulario</button>
+        </div>
+      </form>
+    </section>
+
+    <section class="tarjeta resultados-tarjeta">
+      <div class="encabezado-resultados">
+        <h2>Resultados del curso</h2>
+        <p>La información aparecerá automáticamente al registrar alumnos.</p>
+      </div>
+
+      <div id="estadoVacio" class="estado-vacio">
+        <p>Aún no hay alumnos registrados.</p>
+        <span>Completa el formulario para comenzar.</span>
+      </div>
+
+      <div id="resultados" class="resultados oculto">
+        <section class="bloque">
+          <h3>Listado de alumnos</h3>
+          <div id="listadoAlumnos" class="lista-alumnos"></div>
+        </section>
+
+        <section class="bloque resumen-grid">
+          <article class="resumen-card">
+            <h3>Promedios del curso</h3>
+            <ul id="promediosCurso" class="lista-resumen"></ul>
+          </article>
+
+          <article class="resumen-card">
+            <h3>Estado del curso</h3>
+            <ul id="estadoCurso" class="lista-resumen"></ul>
+          </article>
+        </section>
+
+        <section class="bloque">
+          <h3>Alumnos ordenados por promedio</h3>
+          <div id="rankingAlumnos" class="ranking"></div>
+        </section>
+      </div>
+    </section>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>

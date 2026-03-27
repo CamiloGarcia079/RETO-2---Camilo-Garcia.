@@ -1,0 +1,408 @@
+:root {
+  --color-fondo: #eef3f8;
+  --color-fondo-secundario: #dfe9f3;
+  --color-tarjeta: rgba(255, 255, 255, 0.92);
+  --color-texto: #1f2a37;
+  --color-texto-suave: #5b6878;
+  --color-borde: #d4dce6;
+  --color-principal: #1f7aec;
+  --color-principal-oscuro: #165fc0;
+  --color-exito: #1f9d62;
+  --color-error: #c0392b;
+  --sombra: 0 20px 45px rgba(31, 42, 55, 0.12);
+  --radio: 20px;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  color: var(--color-texto);
+  background:
+    radial-gradient(circle at top left, rgba(31, 122, 236, 0.18), transparent 25%),
+    radial-gradient(circle at bottom right, rgba(31, 157, 98, 0.14), transparent 30%),
+    linear-gradient(135deg, var(--color-fondo), var(--color-fondo-secundario));
+}
+
+.contenedor {
+  width: min(1150px, calc(100% - 32px));
+  margin: 40px auto;
+  display: grid;
+  grid-template-columns: 380px 1fr;
+  gap: 24px;
+  align-items: start;
+}
+
+.tarjeta {
+  background: var(--color-tarjeta);
+  border: 1px solid rgba(255, 255, 255, 0.7);
+  border-radius: var(--radio);
+  box-shadow: var(--sombra);
+  backdrop-filter: blur(10px);
+  min-width: 0;
+}
+
+.formulario-tarjeta,
+.resultados-tarjeta {
+  padding: 28px;
+}
+
+.etiqueta {
+  margin: 0 0 8px;
+  color: var(--color-principal);
+  font-size: 0.92rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.encabezado h1,
+.encabezado-resultados h2,
+.bloque h3,
+.resumen-card h3 {
+  margin-top: 0;
+}
+
+.encabezado h1 {
+  margin-bottom: 10px;
+  font-size: 2rem;
+  line-height: 1.15;
+}
+
+.descripcion,
+.encabezado-resultados p,
+.estado-vacio span,
+.detalle-promedio,
+.detalle-nota {
+  color: var(--color-texto-suave);
+}
+
+.contador {
+  margin: 20px 0;
+  padding: 14px 16px;
+  border-radius: 14px;
+  background: #f3f8ff;
+  border: 1px solid #d7e7ff;
+  font-weight: 600;
+}
+
+.formulario {
+  display: grid;
+  gap: 18px;
+}
+
+.campo {
+  display: grid;
+  gap: 8px;
+}
+
+.campo label {
+  font-weight: 700;
+}
+
+.campo input {
+  width: 100%;
+  padding: 14px 16px;
+  border: 1px solid var(--color-borde);
+  border-radius: 12px;
+  font-size: 1rem;
+  color: var(--color-texto);
+  background: #fff;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.campo input:focus {
+  outline: none;
+  border-color: var(--color-principal);
+  box-shadow: 0 0 0 4px rgba(31, 122, 236, 0.14);
+}
+
+.acciones {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}
+
+button {
+  border: none;
+  border-radius: 12px;
+  padding: 14px 18px;
+  font-size: 1rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: transform 0.2s ease, background 0.2s ease, opacity 0.2s ease;
+}
+
+button:hover {
+  transform: translateY(-1px);
+}
+
+#botonAgregar {
+  background: linear-gradient(135deg, var(--color-exito), #4dbb57);
+  color: #fff;
+}
+
+#botonAgregar:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  transform: none;
+}
+
+.boton-secundario {
+  background: #e9eef5;
+  color: var(--color-texto);
+}
+
+.mensaje {
+  min-height: 24px;
+  margin: 0;
+  font-size: 0.95rem;
+  font-weight: 600;
+}
+
+.mensaje.exito {
+  color: var(--color-exito);
+}
+
+.mensaje.error {
+  color: var(--color-error);
+}
+
+.estado-vacio {
+  min-height: 260px;
+  border: 2px dashed #cfd9e5;
+  border-radius: 18px;
+  display: grid;
+  place-items: center;
+  text-align: center;
+  padding: 24px;
+  background: rgba(248, 251, 255, 0.75);
+}
+
+.estado-vacio p {
+  margin: 0 0 6px;
+  font-size: 1.15rem;
+  font-weight: 700;
+}
+
+.oculto {
+  display: none;
+}
+
+.resultados {
+  display: grid;
+  gap: 22px;
+}
+
+.bloque {
+  padding: 22px;
+  border-radius: 18px;
+  background: #f9fbfe;
+  border: 1px solid #e3ebf4;
+}
+
+.lista-alumnos {
+  display: grid;
+  gap: 16px;
+}
+
+.alumno-card {
+  padding: 18px;
+  border-radius: 16px;
+  background: #fff;
+  border: 1px solid #e1e7ef;
+}
+
+.alumno-card h4 {
+  margin: 0 0 12px;
+  font-size: 1.1rem;
+}
+
+.notas-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 12px;
+}
+
+.nota-item {
+  padding: 12px;
+  border-radius: 12px;
+  background: #f4f8fd;
+  min-width: 0;
+}
+
+.nota-item strong,
+.ranking-item strong {
+  display: block;
+  margin-bottom: 4px;
+}
+
+.resumen-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 18px;
+}
+
+.resumen-card {
+  padding: 18px;
+  border-radius: 16px;
+  background: #fff;
+  border: 1px solid #e1e7ef;
+  min-width: 0;
+}
+
+.lista-resumen {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  gap: 12px;
+}
+
+.lista-resumen li {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid #edf2f7;
+}
+
+.lista-resumen li:last-child {
+  border-bottom: none;
+  padding-bottom: 0;
+}
+
+.ranking {
+  display: grid;
+  gap: 12px;
+}
+
+.ranking-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  padding: 14px 16px;
+  border-radius: 14px;
+  background: #fff;
+  border: 1px solid #e1e7ef;
+}
+
+.ranking-item > div:last-child,
+.lista-resumen li span,
+.lista-resumen li strong,
+.detalle-promedio,
+.detalle-nota,
+.alumno-card h4,
+.encabezado h1,
+.descripcion,
+.encabezado-resultados p {
+  overflow-wrap: break-word;
+  word-break: break-word;
+}
+
+.posicion {
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  background: #e9f2ff;
+  color: var(--color-principal);
+  font-weight: 800;
+}
+
+.estado-aprobado {
+  color: var(--color-exito);
+  font-weight: 700;
+}
+
+.estado-reprobado {
+  color: var(--color-error);
+  font-weight: 700;
+}
+
+@media (max-width: 920px) {
+  .contenedor {
+    grid-template-columns: 1fr;
+  }
+
+  .notas-grid,
+  .resumen-grid,
+  .acciones {
+    grid-template-columns: 1fr;
+  }
+
+  .ranking-item,
+  .lista-resumen li {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .resultados-tarjeta,
+  .formulario-tarjeta {
+    width: 100%;
+  }
+}
+
+@media (max-width: 560px) {
+  .contenedor {
+    width: min(100% - 20px, 100%);
+    margin: 20px auto;
+  }
+
+  .formulario-tarjeta,
+  .resultados-tarjeta {
+    padding: 20px;
+  }
+
+  .encabezado h1 {
+    font-size: 1.65rem;
+  }
+
+  .contador,
+  .bloque,
+  .resumen-card,
+  .alumno-card {
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+
+  .campo input,
+  button {
+    font-size: 16px;
+  }
+
+  .notas-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 380px) {
+  .contenedor {
+    width: calc(100% - 16px);
+  }
+
+  .formulario-tarjeta,
+  .resultados-tarjeta {
+    padding: 16px;
+    border-radius: 16px;
+  }
+
+  .encabezado h1 {
+    font-size: 1.4rem;
+  }
+
+  .notas-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .posicion {
+    width: 34px;
+    height: 34px;
+  }
+}
